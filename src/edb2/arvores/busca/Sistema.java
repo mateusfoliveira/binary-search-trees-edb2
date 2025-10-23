@@ -20,13 +20,16 @@ public class Sistema {
 				break;
 			
 			case 2:
-				//criarArvoreRB();
+				//criarArvoreRb();
 				break;
 		}
+		
 		scanner.close();
 	}
 	
 	public void criarArvoreAvl() {
+		
+		
 		
 	}
 	
