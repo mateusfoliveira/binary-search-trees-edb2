@@ -2,18 +2,20 @@ package edb2.arvores.busca;
 
 public class AvlTree {
 	
-	private NodeAvl inicio;
+	private NodeAvl root;
 	
 	
-	public NodeAvl getInicio() {
-		return inicio;
+	public NodeAvl getRoot() {
+		return root;
 	}
 
 
-	public void setInicio(NodeAvl inicio) {
-		this.inicio = inicio;
+	public void setInicio(NodeAvl root) {
+		this.root = root;
 	}
 
+	//Busca de arvore binária
+	
 	public NodeAvl searchValue(NodeAvl node, int value){
 		
 		if(node == null) return null;
@@ -33,5 +35,24 @@ public class AvlTree {
 		return null;
 		
 	}
+	
+	public int alturaNode(NodeAvl node) {
+		
+		if(node == null) return 0;
+		
+		return node.altura;
+	}
+	
+	public void updateAltura(NodeAvl node){
+		
+		if(node != null) {
+			
+			node.altura = Math.max(alturaNode(node.left), alturaNode(node.right)) + 1;
+			
+		}
+		
+		
+	}
+
 
 }
