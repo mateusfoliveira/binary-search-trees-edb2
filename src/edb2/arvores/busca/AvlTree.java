@@ -26,14 +26,11 @@ public class AvlTree {
 	public NodeAvl getRoot() {
 		return root;
 	}
-
-
-	public void setInicio(NodeAvl root) {
-		this.root = root;
+	
+	public void setRoot(NodeAvl node) {
+		this.root = node;
 	}
 	
-	
-
 	public AvlTree() {
 		super();
 		this.root = null;
@@ -62,14 +59,14 @@ public class AvlTree {
 		
 	}
 	
-	public int alturaNode(NodeAvl node) {
+	private int alturaNode(NodeAvl node) {
 		
 		if(node == null) return 0;
 		
 		return node.altura;
 	}
 	
-	public void updateAltura(NodeAvl node){
+	private void updateAltura(NodeAvl node){
 		
 		if(node != null) {
 			
@@ -78,7 +75,7 @@ public class AvlTree {
 		}
 	}
 	
-	public NodeAvl rotateLeft(NodeAvl node) {
+	private NodeAvl rotateLeft(NodeAvl node) {
 		
 		NodeAvl nodeRight = node.right;
 		
@@ -98,7 +95,7 @@ public class AvlTree {
 	
 	
 	
-	public NodeAvl rotateRight(NodeAvl node) {
+	private NodeAvl rotateRight(NodeAvl node) {
 		
 		NodeAvl nodeLeft = node.left;
 		
@@ -116,7 +113,7 @@ public class AvlTree {
 		
 	}
 	
-	public NodeAvl rotateRL(NodeAvl node){
+	private NodeAvl rotateRL(NodeAvl node){
 		
 		node.right = rotateRight(node.right);
 		node = rotateLeft(node);
@@ -124,7 +121,7 @@ public class AvlTree {
 		return node;
 	}
 	
-	public NodeAvl rotateLR(NodeAvl node) {
+	private NodeAvl rotateLR(NodeAvl node) {
 		
 		node.left =  rotateLeft(node.left);
 		node = rotateRight(node);
