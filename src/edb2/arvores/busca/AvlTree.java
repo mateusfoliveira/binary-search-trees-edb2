@@ -1,6 +1,6 @@
 package edb2.arvores.busca;
 
-class NodeAvl {
+class NodeAvl{
 	
 	int altura;
 	int value;
@@ -18,7 +18,7 @@ class NodeAvl {
 	}
 }
 
-public class AvlTree {
+public class AvlTree{
 	
 	private NodeAvl root;
 	
@@ -39,6 +39,7 @@ public class AvlTree {
 
 	//Busca de árvore binária
 	
+
 	public NodeAvl searchValue(NodeAvl node, int value){
 		
 		if(node == null) return null;
@@ -166,6 +167,70 @@ public class AvlTree {
 		return node;
 	}
 	
+	private NodeAvl Sucessor(NodeAvl node) {
+		
+        if (node.left != null)
+            return Sucessor (node.left);
+
+        else
+            return node;
+	    
+	}
+	
+	public NodeAvl removeValue(NodeAvl node, int key){
+
+	        if (node == null) return node;
+
+	        if (key < node.value) node.left = removeValue(node.left, key);
+
+	        else if (key > node.value) node.right = removeValue(node.right, key);
+
+	        else{
+	        	
+	            if (node.right == null) return node.left;
+
+	            else if (node.left == null) return node.right;
+
+	            else{
+	            	
+	                NodeAvl temp = Sucessor(node.right);
+	                
+	                node.value = temp.value;
+	                
+	                node.right = removeValue(node.right, node.value);
+	            }
+	        }
+
+	        updateAltura(node);
+
+	        int balance = alturaNode(node.left) - alturaNode(node.right);
+
+	        if (balance > 1) {
+
+	            if (alturaNode(node.left.left) - alturaNode(node.left.right) >= 0) {
+
+	                node = rotateRight(node);
+	            } else {
+
+	                node = rotateLR(node);
+	            }
+	        }
+	        
+	        else if (balance < -1) {
+
+	            if (alturaNode(node.right.left) - alturaNode(node.right.right) <= 0) {
+
+	                node = rotateLeft(node);
+	            } else {
+
+	                node = rotateRL(node);
+	            }
+	        }
+
+	        return node;
+	    
+	 }
+	
     void printTree(NodeAvl node){
     	
         if(node == null){
@@ -179,6 +244,4 @@ public class AvlTree {
         
         if(node.right != null) printTree(node.right);
     }
-
-
 }
