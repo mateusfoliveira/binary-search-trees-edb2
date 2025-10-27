@@ -1,4 +1,4 @@
-# Implementação de Árvores de Busca Balanceadas: AVL e Rubro-Negra
+# Implementação de Árvores AVL e Rubro-Negra
 
 Trabalho acadêmico desenvolvido em Java para a disciplina de Estrutura de Dados Básicas 2. O objetivo é demonstrar a implementação funcional de uma Árvore AVL e de uma Árvore Rubro-Negra.
 
