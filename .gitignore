@@ -1,3 +1,6 @@
 module-info.java
+.settings
+bin
 .classpath
 .project
+src/edb2/arvores/busca/TesteAvl.java
