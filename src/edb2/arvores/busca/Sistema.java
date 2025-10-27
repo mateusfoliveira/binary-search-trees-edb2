@@ -20,7 +20,7 @@ public class Sistema {
 				break;
 			
 			case 2:
-				//criarArvoreRb(scanner);
+				criarArvoreRb(scanner);
 				break;
 				
 			case 3:
@@ -50,7 +50,7 @@ public class Sistema {
 					int elemento = scanner.nextInt();
 					scanner.nextLine();
 					
-					if(tree.searchValue(tree.getRoot(), entrada) != null) {
+					if(tree.searchValue(tree.getRoot(), elemento) != null) {
 						System.out.println("O elemento já está na árvore!");
 						break;
 					}
@@ -69,7 +69,7 @@ public class Sistema {
 					int removeElemento = scanner.nextInt();
 					scanner.nextLine();
 					
-					if(tree.searchValue(tree.getRoot(), entrada) == null) {
+					if(tree.searchValue(tree.getRoot(), removeElemento) == null) {
 						System.out.println("O elemento não está na árvore!\n");
 						break;
 					}
@@ -111,6 +111,66 @@ public class Sistema {
 	}
 	
 	public void criarArvoreRb(Scanner scanner) {
+		
+		RBTree tree = new RBTree();
+		
+		while(true) {
+			
+			System.out.println("Escolha uma das opções:\n1 - Inserir elemento\n2 - Buscar elemento\n3 - Visualizar árvore\n4 - Sair");
+			
+			int entrada = scanner.nextInt();
+			scanner.nextLine();
+		
+			switch(entrada){
+
+				case 1:
+					System.out.println("Digite o valor que você deseja inserir:");
+					
+					int elemento = scanner.nextInt();
+					scanner.nextLine();
+					
+					if(tree.searchValue(tree.getRoot(), elemento) != null) {
+						System.out.println("O elemento já está na árvore!");
+						break;
+					}
+					
+					tree.insertValue(elemento);
+					
+					System.out.println("AVL tree: ");
+					tree.printTree(tree.getRoot());
+					System.out.println("\n");
+					
+					break;
+					
+					
+				case 2:
+					System.out.println("Digite o valor que você deseja buscar:");
+					
+					int acharElemento = scanner.nextInt();
+					scanner.nextLine();
+					
+					NodeRB foundNode = tree.searchValue(tree.getRoot(), acharElemento);
+					
+					if(foundNode != null) System.out.println("O valor " + foundNode.data + "foi encontrado!");
+					
+					else {
+						System.out.println("Elemento não encontrado!");
+					}
+					
+					break;
+					
+				case 3:
+					
+					tree.printTree(tree.getRoot());
+					System.out.println("\n");
+					break;
+					
+				case 4:
+					scanner.close();
+					return;
+			}
+
+		}
 		
 		
 	}
