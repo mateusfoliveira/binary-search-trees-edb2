@@ -4,7 +4,7 @@ Trabalho acadêmico desenvolvido em Java para a disciplina de Estrutura de Dados
 
 ## 📋 Pré-requisitos
 
-Para compilar e executar este projeto, é necessário ter o Java Development Kit (JDK) instalado. Recomenda-se a versão 11 ou superior.
+Para compilar e executar este projeto, é necessário ter o Java Development Kit (JDK) instalado. Recomenda-se a versão 17 ou superior.
 
 Você pode verificar sua versão do Java com o comando:
 
